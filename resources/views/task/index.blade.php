@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('content')
+
+    @include('components.error-block')
+    @include('components.info-block')
+
+
 <form action="{{ route('taskCreate') }}" method="post">
     @csrf
     <div id="myDIV" class="header">

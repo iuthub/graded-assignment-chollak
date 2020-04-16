@@ -15,18 +15,25 @@ class TaskController extends Controller
     }
 
     public function create(Request $request){
+        $this->validate($request, [
+            'title' => 'required|min:2',
+        ]);
         $task = new Task([
             'title' => $request->input('title')
         ]);
         $task->save();
-        return redirect()->back();
+        return redirect()->back()->with([
+			'info'=>'Successfully CREATED !'
+		]);
     }
     public function edit($id,Request $request){
         $task = Task::find($id);
         if($request->input('title')!== null){
             $task->title = $request->input('title');
             $task->save();
-            return redirect()->route('taskIndex');
+            return redirect()->route('taskIndex')->with([
+                'info'=>'Successfully EDITED !'
+            ]);
         }
         return view('task.edit',[
             'task' => $task
@@ -35,6 +42,8 @@ class TaskController extends Controller
     public function delete($id){
         $task = Task::find($id);
         $task->delete();
-        return redirect()->back();
+        return redirect()->back()->with([
+			'info'=>'Successfully DELETED !'
+		]);
     }
 }

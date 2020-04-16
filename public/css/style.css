@@ -97,3 +97,9 @@
   .addBtn:hover {
     background-color: #bbb;
   }
+
+  .alert{
+    background: #aa615b;
+    padding: 15px 25px;
+    font-size: 2rem;
+  }
