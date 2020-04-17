@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Task;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class TaskController extends Controller
 {
@@ -18,10 +20,12 @@ class TaskController extends Controller
         $this->validate($request, [
             'title' => 'required|min:2',
         ]);
+        $user = Auth::user();
+
         $task = new Task([
             'title' => $request->input('title')
         ]);
-        $task->save();
+        $user->tasks()->save($task);
         return redirect()->back()->with([
 			'info'=>'Successfully CREATED !'
 		]);

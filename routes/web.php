@@ -14,24 +14,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [
-    'uses' => 'TaskController@index',
-    'as' => 'taskIndex'
-]);
+Route::group([
+	'prefix'=>'',
+	'middleware' => ['auth']
+], function(){
+    Route::get('/', [
+        'uses' => 'TaskController@index',
+        'as' => 'taskIndex'
+    ]);
 
-Route::post('/create', [
-    'uses' => 'TaskController@create',
-    'as' => 'taskCreate'
-]);
-Route::get('/edit/{id}', [
-    'uses' => 'TaskController@edit',
-    'as' => 'taskEdit'
-]);
-Route::get('/delete/{id}', [
-    'uses' => 'TaskController@delete',
-    'as' => 'taskDelete'
-]);
+    Route::post('/create', [
+        'uses' => 'TaskController@create',
+        'as' => 'taskCreate'
+    ]);
+    Route::get('/edit/{id}', [
+        'uses' => 'TaskController@edit',
+        'as' => 'taskEdit'
+    ]);
+    Route::get('/delete/{id}', [
+        'uses' => 'TaskController@delete',
+        'as' => 'taskDelete'
+    ]);
+});
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
