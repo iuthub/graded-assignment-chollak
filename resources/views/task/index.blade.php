@@ -20,6 +20,9 @@
             {{$task->title}}
         </div>
         <div class="action">
+            by {{$task->user->name}}
+        </div>
+        <div class="action">
             <a href="{{route('taskEdit',['id'=>$task->id])}}"><i class="fa fa-edit"></i></a>
         </div>
         <div class="action">

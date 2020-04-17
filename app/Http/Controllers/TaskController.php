@@ -32,6 +32,11 @@ class TaskController extends Controller
     }
     public function edit($id,Request $request){
         $task = Task::find($id);
+        if(Gate::denies('task-access', $task)) {
+            return redirect()->back()->with([
+                'error'=>'You are not authorized to EDIT this task'
+            ]);
+        }
         if($request->input('title')!== null){
             $task->title = $request->input('title');
             $task->save();
@@ -45,6 +50,11 @@ class TaskController extends Controller
     }
     public function delete($id){
         $task = Task::find($id);
+        if(Gate::denies('task-access', $task)) {
+            return redirect()->back()->with([
+                'error'=>'You are not authorized to DELETE this task'
+            ]);
+        }
         $task->delete();
         return redirect()->back()->with([
 			'info'=>'Successfully DELETED !'
