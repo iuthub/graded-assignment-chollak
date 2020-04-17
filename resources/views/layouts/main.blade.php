@@ -12,8 +12,10 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
+        @include('components.navbar')
         @yield('content')
     </body>
 </html>
