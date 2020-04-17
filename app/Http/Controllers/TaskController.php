@@ -18,7 +18,7 @@ class TaskController extends Controller
 
     public function create(Request $request){
         $this->validate($request, [
-            'title' => 'required|min:2',
+            'title' => 'required|regex:/([a-zA-Z]+\s?\b){2,}/',
         ]);
         $user = Auth::user();
 
@@ -32,6 +32,9 @@ class TaskController extends Controller
     }
     public function edit($id,Request $request){
         $task = Task::find($id);
+        $this->validate($request, [
+            'title' => 'required|regex:/([a-zA-Z]+\s?\b){2,}/',
+        ]);
         if(Gate::denies('task-access', $task)) {
             return redirect()->back()->with([
                 'error'=>'You are not authorized to EDIT this task'
