@@ -40,16 +40,16 @@ Note, that in order set up this blog on your PC, you must have latest versions o
 
 You must complete each task given below:
 
-- [ ] Break down `welcome.blade.php` template into layout and index views. Create necessary components for reusable parts such as task item in necessary. Configure routes in `web.php`.
-- [ ] Create a `Task` Eloquent model with a migration file to represent a task in your to-do list. Modify the corresponding migration file with necessary fields, and run all migrations on your local database.
-- [ ] Create a corresponding controller and implement user actions for adding, editing and deleting a task. Map these actions to routes in `web.php`. 
-- [ ] Implement a following validation rule to each task: Any task must consist of 2 or more words. If user input does not comply with this validation rule, a corresponding error message should be shown to the user. If the message is added to your database successfully, a corresponding notification should be flashed once at the top of your To-Do app.
-- [ ] Create a seeder file for populating tasks in database and run it in your local database. 
-- [ ] Scaffold an authentication mechanism in this project. Make sure that it registers and logins users. 
-- [ ] Customize newly generated login and register pages to your project's design. Include corresponding Login/Logout and Register links at the top of your to-do list app.
-- [ ] Use middleware to protect relevant routes of your project from unauthenticated access.
-- [ ] Establish a one-to-many relationship between `Task` and `User` models both on a model level and on a migration level. Run all migration files again to refresh your database with new changes. Make appropriate modifications in your task controller as well to incorporate new relationship between `Task` and `User`.
-- [ ] Your To-Do app has to show only those tasks which belong to an authenticated user, and should not display or allow the modification of tasks which belong to other users. Use `Gates` to enforce restrictions on making modifications on other users' tasks. 
+- [ ] 1. Break down `welcome.blade.php` template into layout and index views. Create necessary components for reusable parts such as task item in necessary. Configure routes in `web.php`.
+- [ ] 2. Create a `Task` Eloquent model with a migration file to represent a task in your to-do list. Modify the corresponding migration file with necessary fields, and run all migrations on your local database.
+- [ ] 3. Create a corresponding controller and implement user actions for adding, editing and deleting a task. Map these actions to routes in `web.php`. 
+- [ ] 4. Implement a following validation rule to each task: Any task must consist of 2 or more words. If user input does not comply with this validation rule, a corresponding error message should be shown to the user. If the message is added to your database successfully, a corresponding notification should be flashed once at the top of your To-Do app.
+- [ ] 5. Create a seeder file for populating tasks in database and run it in your local database. 
+- [ ] 6. Scaffold an authentication mechanism in this project. Make sure that it registers and logins users. 
+- [ ] 7. Customize newly generated login and register pages to your project's design. Include corresponding Login/Logout and Register links at the top of your to-do list app.
+- [ ] 8. Use middleware to protect relevant routes of your project from unauthenticated access.
+- [ ] 9. Establish a one-to-many relationship between `Task` and `User` models both on a model level and on a migration level. Run all migration files again to refresh your database with new changes. Make appropriate modifications in your task controller as well to incorporate new relationship between `Task` and `User`.
+- [ ] 10. Your To-Do app has to show only those tasks which belong to an authenticated user, and should not display or allow the modification of tasks which belong to other users. Use `Gates` to enforce restrictions on making modifications on other users' tasks. 
 
 Once you finish all tasks above, export the current state of your local database into a `dump.sql` file and include it into this folder.
 

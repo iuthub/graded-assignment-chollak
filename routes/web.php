@@ -30,3 +30,7 @@ Route::get('/delete/{id}', [
     'uses' => 'TaskController@delete',
     'as' => 'taskDelete'
 ]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
