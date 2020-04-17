@@ -1,5 +1,5 @@
 
-# IP 2020: Online Graded Assignment - Simple To-Do List using Laravel (Finished)
+# IP 2020: Online Graded Assignment - Simple To-Do List using Laravel (Finished )
 
 <img src="https://imgur.com/92FMPUU.png"/>
 

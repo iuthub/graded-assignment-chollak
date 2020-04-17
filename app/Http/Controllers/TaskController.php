@@ -11,9 +11,11 @@ use Illuminate\Support\Facades\Gate;
 class TaskController extends Controller
 {
     public function index(){
-        return view('task.index',[
-            'tasks' => Task::all()
-        ]);
+        // return view('task.index',[
+        //     // 'tasks' => Task::all(),
+        //     // 'tasks' => Task::where('user_id','=', Auth::user()->id), 
+        // ]);
+        return view('task.index');
     }
 
     public function create(Request $request){
@@ -32,15 +34,15 @@ class TaskController extends Controller
     }
     public function edit($id,Request $request){
         $task = Task::find($id);
-        $this->validate($request, [
-            'title' => 'required|regex:/([a-zA-Z]+\s?\b){2,}/',
-        ]);
         if(Gate::denies('task-access', $task)) {
             return redirect()->back()->with([
                 'error'=>'You are not authorized to EDIT this task'
             ]);
         }
         if($request->input('title')!== null){
+            $this->validate($request, [
+                'title' => 'required|regex:/([a-zA-Z]+\s?\b){2,}/',
+            ]);
             $task->title = $request->input('title');
             $task->save();
             return redirect()->route('taskIndex')->with([

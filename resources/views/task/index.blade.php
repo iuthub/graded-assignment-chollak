@@ -14,7 +14,7 @@
     </div>
 </form>
 <ul id="myUL">
-    @foreach ($tasks as $task)                      
+    @foreach (auth()->user()->tasks as $task)                      
     <li>
         <div class="task">
             {{$task->title}}
